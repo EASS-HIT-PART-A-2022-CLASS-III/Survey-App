@@ -6,8 +6,11 @@ To run SurveyApp, you need to have Docker installed on your machine. Clone this 
 
 Build the Docker image:
 `docker build -t surveyapp .`
+
 Run the Docker container:
+
 `docker run -p 8000:8000 surveyapp`
+
 Visit http://localhost:8000 in your web browser to view the SurveyApp.
 
 ### Usage
