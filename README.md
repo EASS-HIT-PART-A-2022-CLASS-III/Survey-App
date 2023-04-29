@@ -9,7 +9,7 @@ Build the Docker image:
 
 Run the Docker container:
 
-`docker run -p 8000:8000 surveyapp`
+`docker run -it -p 8000:8000 surveyapp`
 
 Visit http://localhost:8000 in your web browser to view the SurveyApp.
 
