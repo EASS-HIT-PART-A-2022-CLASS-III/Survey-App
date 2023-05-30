@@ -1,7 +1,12 @@
 # Survey App
-[https://github-production-user-asset-6210df.s3.amazonaws.com/67056261/242066879-032ebbe5-fa00-4170-a63a-34504f47b9c0.mp4
-](https://github-production-user-asset-6210df.s3.amazonaws.com/67056261/242066879-032ebbe5-fa00-4170-a63a-34504f47b9c0.mp4)
-A simple survey app built with FastAPI,React and Docker.
+
+
+https://github.com/EASS-HIT-PART-A-2022-CLASS-III/Survey-App/assets/67056261/dd39e664-6083-45e5-acf7-505e410c463e
+
+Or Click [here](https://github-production-user-asset-6210df.s3.amazonaws.com/67056261/242066879-032ebbe5-fa00-4170-a63a-34504f47b9c0.mp4) to watch a demo of the project in action.
+
+### A simple survey app built with FastAPI,React and Docker.
+
 ### Installation
 
 
