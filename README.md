@@ -1,19 +1,27 @@
 # Survey App
 
-A simple survey app built with FastAPI and docker.
+A simple survey app built with FastAPI,React and Docker.
 
 ### Installation
 
 To run SurveyApp, you need to have Docker installed on your machine. Clone this repository and navigate to the project directory.
 
+# if you want runnig all in One command:
+
+navigate to the root directory
+
+`docker-compose up --build .`
+
 # Backend side:
 
 Build the Docker image:
-`docker build -t surveyapp .`
+navigate to the Backend directory
+
+`docker build -t Backend .`
 
 Run the Docker container:
 
-`docker run -it -p 8000:8000 surveyapp`
+`docker run -it -p 8000:8000 Backend`
 
 Visit http://localhost:8000 in your web browser to view the SurveyApp on Backend side .
 
@@ -50,6 +58,8 @@ To vote on a survey question, use the following endpoint:
 # Frontend side:
 
 Build the Docker image:
+navigate to the Frontend directory
+
 `docker build -t frontend .`
 
 Run the Docker container:
@@ -57,3 +67,19 @@ Run the Docker container:
 `docker run -it 3000:3000 frontend`
 
 Visit http://localhost:3000 in your web browser to view the Survey App on the frontend side.
+
+# logging microservice side:
+
+Build the Docker image:
+navigate to the logging-microservice directory
+
+`docker build -t logging-microservice .`
+
+Run the Docker container:
+
+`docker run -it 8080:8080 logging-microservice`
+
+### Usage
+
+You can get a list of all logging using the following endpoint:
+`GET /log`

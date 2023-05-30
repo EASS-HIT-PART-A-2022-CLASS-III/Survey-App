@@ -1,12 +1,13 @@
 from fastapi import FastAPI, HTTPException
 from survey import Survey, Question, Vote
 from fastapi.middleware.cors import CORSMiddleware
-
-
+import requests
 app = FastAPI()
 # Allow requests from http://localhost:3000
 origins = [
     "http://localhost:3000",
+    "http://localhost:8080",
+
 ]
 
 # Add the CORS middleware to the app
@@ -20,12 +21,25 @@ app.add_middleware(
 survey = Survey()
 
 
+def log_message(message: str):
+    try:
+        response = requests.post('http://logging:8080/log', json={'message': message})
+        # This will raise an exception for 4xx and 5xx status codes
+        print(response.raise_for_status())
+        print(message)  # Print the received log message
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to log message. Error: {e}")
+        print(message)  # Print the message anyway
+
+
+
 @app.post("/questions")
 async def create_question(question: Question):
     if len(question.choices) < 2:
         raise HTTPException(status_code=400, detail="Question must have at least two choices")
     survey.add_question(question)
     question_id = len(survey.questions) - 1
+    log_message(f"Question {question_id} created successfully")
     return {"message": f"Question {question_id} created successfully"}
 
 
@@ -42,6 +56,7 @@ async def get_questions():
 async def create_vote(vote: Vote):
     try:
         survey.add_vote(vote)
+        log_message(f"Vote cast successfully")
         return {"message": "Vote cast successfully"}
     except HTTPException as e:
         raise e
